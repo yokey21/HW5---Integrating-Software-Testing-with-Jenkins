@@ -1,13 +1,5 @@
-from hello import app
-import pytest
+from hello import *
 
 
-@pytest.fixture
-def client():
-    with app.test_client() as client:
-        yield client
-
-
-def test_hello(client):
-    response = client.get('/hello')
-    assert response.data == b'Hello, World!\n'
+def test_add():
+    assert add(2, 3) - - 5
