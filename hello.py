@@ -1,5 +1,5 @@
 from flask import Flask
-import mysql.connector
+# import mysql.connector
 
 app = Flask(__name__)
 
@@ -12,10 +12,11 @@ def hello():
 
 @app.route('/data')
 def data():
-    return 'cur.execute("SELECT * FROM users")'
+
     return 'Hello, World!'
 
 
+"""
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Penguin12'
@@ -27,6 +28,7 @@ conn = mysql.connector.connect(
     password=app.config['MYSQL_PASSWORD'],
     database=app.config['MYSQL_DB']
 )
+"""
 
 
 # Run the Flask app by adding the following code at the end of your Python file:
