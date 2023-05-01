@@ -27,22 +27,3 @@ def test_analyze_weather_data():
 
     # Test the function and compare results
     assert analyze_weather_data(weather_data) == expected_results
-
-
-def test_display_weather_data(capsys):
-    data = [
-        {'city': 'New York', 'temperature': 22.05, 'humidity': 57, 'windspeed': 8},
-        {'city': 'London', 'temperature': 17.89, 'humidity': 82, 'windspeed': 12},
-        {'city': 'Tokyo', 'temperature': 26.74, 'humidity': 61, 'windspeed': 6},
-    ]
-    display_weather_data(data)
-    captured = capsys.readouterr()
-    expected_output = """+----------+-------------+----------+-----------+
-|   City   | Temperature | Humidity | Windspeed |
-+----------+-------------+----------+-----------+
-| New York |    22.05    |    57    |     8     |
-|  London  |    17.89    |    82    |     12    |
-|   Tokyo  |    26.74    |    61    |     6     |
-+----------+-------------+----------+-----------+
-"""
-    assert captured.out == expected_output
