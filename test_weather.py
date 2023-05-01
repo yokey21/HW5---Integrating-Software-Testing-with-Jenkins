@@ -8,7 +8,8 @@ def test_add():
 
 
 def test_generate_weather_data():
-    data = generate_weather_data()
+    num_entries = 10
+    data = generate_weather_data(num_entries)
     assert isinstance(data, list)
     assert len(data) == 10
     for item in data:
