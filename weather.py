@@ -1,5 +1,14 @@
 import random
 import statistics
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route('/data')
+def data():
+
+    return 'Hello, World!'
 
 
 def analyze_weather_data(weather_data):
@@ -61,3 +70,7 @@ def add(x, y):
 
 data = generate_weather_data(5)
 display_weather_data(data)
+
+# Run the Flask app by adding the following code at the end of your Python file:
+if __name__ == '__main__':
+    app.run()
