@@ -1,4 +1,26 @@
 import random
+import statistics
+
+
+def analyze_weather_data(weather_data):
+    """
+    Analyze the weather data and return a dictionary with the results.
+    """
+    results = {}
+    temperatures = [data['temperature'] for data in weather_data]
+    humidity = [data['humidity'] for data in weather_data]
+    windspeed = [data['windspeed'] for data in weather_data]
+
+    results['temperature_mean'] = statistics.mean(temperatures)
+    results['temperature_stdev'] = statistics.stdev(temperatures)
+
+    results['humidity_mean'] = statistics.mean(humidity)
+    results['humidity_stdev'] = statistics.stdev(humidity)
+
+    results['windspeed_mean'] = statistics.mean(windspeed)
+    results['windspeed_stdev'] = statistics.stdev(windspeed)
+
+    return results
 
 
 def generate_weather_data(num_entries):
