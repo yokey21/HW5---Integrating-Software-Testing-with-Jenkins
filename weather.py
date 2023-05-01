@@ -72,5 +72,5 @@ data = generate_weather_data(5)
 display_weather_data(data)
 
 # Run the Flask app by adding the following code at the end of your Python file:
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+# app.run()
