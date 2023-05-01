@@ -31,9 +31,12 @@ def generate_weather_data(num_entries):
     for i in range(num_entries):
         city = random.choice(cities)
         temperature = round(random.uniform(-10, 40), 2)
+        humidity = round(random.uniform(0, 100), 2)
+        windspeed = round(random.uniform(0, 50), 2)
         condition = random.choice(weather_conditions)
 
-        data = {'city': city, 'temperature': temperature, 'condition': condition}
+        data = {'city': city, 'temperature': temperature,
+                'humidity': humidity, 'windspeed': windspeed, 'condition': condition}
         weather_data.append(data)
 
     return weather_data
@@ -44,4 +47,4 @@ def add(x, y):
 
 
 data = generate_weather_data(5)
-print(data)
+print(analyze_weather_data(data))
