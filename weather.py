@@ -42,9 +42,22 @@ def generate_weather_data(num_entries):
     return weather_data
 
 
+def display_weather_data(weather_data):
+    print("| City          | Temperature (C) | Humidity (%) | Wind Speed (km/h) | Condition     |")
+    print("+---------------+----------------+--------------+-------------------+---------------+")
+
+    for data in weather_data:
+        city = data['city'].ljust(15)
+        temp = str(data['temperature']).ljust(16)
+        humid = str(data['humidity']).ljust(14)
+        wind = str(data['windspeed']).ljust(19)
+        condition = data['condition'].ljust(15)
+        print(f"| {city}| {temp}| {humid}| {wind}| {condition}|")
+
+
 def add(x, y):
     return x + y
 
 
 data = generate_weather_data(5)
-print(analyze_weather_data(data))
+display_weather_data(data)
