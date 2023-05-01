@@ -11,7 +11,7 @@ def test_generate_weather_data():
     num_entries = 5
     data = generate_weather_data(num_entries)
     assert isinstance(data, list)
-    assert len(data) == 10
+    assert len(data) == 5
     for item in data:
         assert isinstance(item, dict)
         assert set(item.keys()) == {
