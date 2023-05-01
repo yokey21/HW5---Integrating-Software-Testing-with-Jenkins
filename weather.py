@@ -1,14 +1,23 @@
 import random
 import statistics
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route('/data')
-def data():
-
-    return 'Hello, World!'
+@app.route('/weather')
+def display_weather():
+    headers = [
+        'City', 'Temperature (C)', 'Humidity (%)', 'Wind Speed (km/h)', 'Condition']
+    rows = []
+    for data in weather_data:
+        city = data['city']
+        temp = str(data['temperature'])
+        humid = str(data['humidity'])
+        wind = str(data['windspeed'])
+        condition = data['condition']
+        rows.append([city, temp, humid, wind, condition])
+    return render_template('weather.html', headers=headers, rows=rows)
 
 
 def analyze_weather_data(weather_data):
@@ -68,8 +77,8 @@ def add(x, y):
     return x + y
 
 
-data = generate_weather_data(5)
-display_weather_data(data)
+weather_data = generate_weather_data(5)
+display_weather_data(weather_data)
 
 # Run the Flask app by adding the following code at the end of your Python file:
 # if __name__ == '__main__':
